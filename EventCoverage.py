@@ -55,7 +55,7 @@ def cleaning(raw_news):
     return ' '.join(word for word in stems if len(word)>2)
 
 
-def test_predict(text):
+def predictLable(text):
   with open('./AlternusVera_EventDetection/event_coverage.pkl', 'rb') as file:  
     nb_pipeline_ngram = pickle.load(file)
   data = {'clean':  [text]
@@ -67,4 +67,4 @@ def test_predict(text):
   cleantxt = df_test['clean'][0]
   predicted = nb_pipeline_ngram.predict([cleantxt])
   predicedProb = nb_pipeline_ngram.predict_proba([cleantxt])[:,1]
-  print( bool(predicted), float(predicedProb))
+  return predicted;
