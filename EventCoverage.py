@@ -67,4 +67,4 @@ def predictLable(text):
   cleantxt = df_test['clean'][0]
   predicted = nb_pipeline_ngram.predict([cleantxt])
   predicedProb = nb_pipeline_ngram.predict_proba([cleantxt])[:,1]
-  return predicted;
+  return predicedProb;
